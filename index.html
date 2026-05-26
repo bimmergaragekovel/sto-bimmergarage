@@ -9,7 +9,6 @@
 <style>
 /* ===================== RESET & VARIABLES ===================== */
 *{box-sizing:border-box;margin:0;padding:0}
-html{overflow-x:hidden}
 :root{
   --bg:#0d0d0d;
   --bg2:#111;
@@ -31,7 +30,7 @@ html{overflow-x:hidden}
   --radius:8px;
   --radius2:10px;
 }
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;overflow-x:hidden;max-width:100vw}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;font-size:14px}
 input,select,textarea,button{font-family:var(--font);font-size:14px}
 input,select,textarea{background:var(--bg4);border:1px solid var(--border2);border-radius:var(--radius);padding:8px 12px;color:var(--text);width:100%;outline:none;transition:border-color .2s}
 input:focus,select:focus,textarea:focus{border-color:var(--red)}
@@ -93,51 +92,45 @@ a{color:inherit;text-decoration:none}
 }
 
 /* ===================== MAIN ===================== */
-.main{padding:16px;max-width:1200px;margin:0 auto;overflow-x:hidden}
-/* ===================== JOB LIST ===================== */
-.jobs{display:flex;flex-direction:column;gap:10px}
+.main{padding:20px;max-width:1200px;margin:0 auto}
+
+/* ===================== FILTER ROW ===================== */
 .filter-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
 .search{flex:1;min-width:180px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius);padding:9px 14px;font-size:13px;color:var(--text2)}
 .filter-btns{display:flex;gap:6px}
 .fbadge{padding:7px 14px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--border2);cursor:pointer;background:var(--bg3);color:var(--text3);transition:all .2s}
 .fbadge.active{background:var(--red);color:#fff;border-color:var(--red)}
 
-.job{background:#141414;border:1px solid #1e1e1e;border-radius:var(--radius2);overflow:hidden;display:grid;grid-template-columns:4px 1fr;transition:border-color .2s;min-width:0}
+/* ===================== JOB CARDS ===================== */
+.jobs{display:flex;flex-direction:column;gap:10px}
+.job{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;display:grid;grid-template-columns:4px 1fr;transition:border-color .2s}
 .job:hover{border-color:var(--border2)}
 .job-accent{background:var(--red)}
 .job-accent.done{background:var(--green)}
-.job-inner{padding:14px 16px;min-width:0;overflow:hidden}
-.job-r1{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:8px;flex-wrap:wrap}
-.job-car{font-size:15px;font-weight:800;color:#4d9fd6;letter-spacing:.02em;word-break:break-word}
-.job-plate{font-size:11px;color:var(--text4);margin-left:8px;font-weight:400;border:1px solid var(--border2);padding:2px 7px;border-radius:3px;letter-spacing:.05em;white-space:nowrap}
-.job-r1-right{display:flex;align-items:center;gap:6px;flex-shrink:0;flex-wrap:wrap}
-.status{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:3px;white-space:nowrap}
+.job-inner{padding:14px 16px}
+.job-r1{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:8px}
+.job-car{font-size:15px;font-weight:800;color:#fff;letter-spacing:.02em}
+.job-plate{font-size:11px;color:var(--text4);margin-left:8px;font-weight:400;border:1px solid var(--border2);padding:2px 7px;border-radius:3px;letter-spacing:.05em}
+.job-r1-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.status{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:3px}
 .s-open{background:rgba(200,0,0,.1);color:#e05050;border:1px solid rgba(200,0,0,.2)}
 .s-done{background:rgba(26,122,74,.12);color:var(--green2);border:1px solid rgba(26,122,74,.22)}
-.job-r2{display:flex;align-items:center;gap:10px;margin-bottom:8px;min-width:0}
-.job-work{font-size:13px;color:#909090;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.job-r2{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.job-work{font-size:13px;color:var(--text3);flex:1}
 .job-price{font-size:17px;font-weight:800;color:#fff;white-space:nowrap}
 .job-r3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.job-meta{font-size:11px;color:#606060;display:flex;align-items:center;gap:4px}
+.job-meta{font-size:11px;color:var(--text4);display:flex;align-items:center;gap:4px}
 .job-meta svg{width:11px;height:11px;stroke:var(--text4);flex-shrink:0;fill:none;stroke-width:2}
 .divider{width:1px;height:10px;background:var(--border2)}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.chip{background:#1a1a1a;border:1px solid #222;border-radius:4px;padding:5px 10px;font-size:12px;color:#e0e0e0;display:flex;align-items:center;gap:5px;cursor:pointer;transition:border-color .2s;max-width:100%;word-break:break-word}
-.chip-price{color:#27c47a;font-weight:700}
-.sup-badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:4px;letter-spacing:.03em;white-space:nowrap}
-.sup-avtoapt{background:rgba(55,138,221,.15);color:#4d9fd6;border:1px solid rgba(55,138,221,.3)}
-.sup-avtoteh{background:rgba(239,159,39,.12);color:#ef9f27;border:1px solid rgba(239,159,39,.25)}
-.sup-local{background:rgba(29,158,117,.12);color:#27c47a;border:1px solid rgba(29,158,117,.25)}
-.sup-rockauto{background:rgba(192,80,192,.12);color:#c060c0;border:1px solid rgba(192,80,192,.25)}
-.sup-ori{background:rgba(220,80,80,.12);color:#e05a5a;border:1px solid rgba(220,80,80,.25)}
-.sup-default{background:rgba(150,150,150,.1);color:#888;border:1px solid rgba(150,150,150,.2)}
+.chip{background:var(--bg4);border:1px solid var(--border2);border-radius:4px;padding:4px 9px;font-size:11px;color:var(--text3);display:flex;align-items:center;gap:5px;cursor:pointer;transition:border-color .2s}
 .chip:hover{border-color:var(--border2)}
 .chip b{color:var(--text2);font-weight:600}
 .chip-secret{display:none}
 .chip.revealed .chip-secret{display:inline}
 .chip.revealed .chip-pub{display:none}
-.job-actions{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);flex-wrap:wrap}
-.ja-btn{background:none;border:1px solid var(--border2);color:var(--text3);padding:5px 10px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:.04em;text-transform:uppercase;transition:all .2s;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.job-actions{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.ja-btn{background:none;border:1px solid var(--border2);color:var(--text3);padding:5px 10px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:.04em;text-transform:uppercase;transition:all .2s;display:flex;align-items:center;gap:5px}
 .ja-btn:hover{border-color:var(--text3);color:var(--text)}
 .ja-btn.danger:hover{border-color:var(--red);color:var(--red2)}
 .ja-btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2}
@@ -154,11 +147,11 @@ a{color:inherit;text-decoration:none}
 }
 
 /* ===================== CARD EXPAND ===================== */
-.job-details{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);overflow:hidden;word-break:break-word}
+.job-details{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
 .job-details.open{display:block}
-.job-detail-row{display:flex;gap:8px;margin-bottom:6px;font-size:13px;flex-wrap:wrap}
-.job-detail-label{color:var(--text3);min-width:80px;flex-shrink:0;font-weight:600}
-.job-detail-val{color:var(--text);flex:1;word-break:break-word}
+.job-detail-row{display:flex;gap:8px;margin-bottom:6px;font-size:13px}
+.job-detail-label{color:var(--text3);min-width:90px;flex-shrink:0;font-weight:600}
+.job-detail-val{color:var(--text)}
 .job-expand-btn{background:none;border:none;color:var(--text3);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;text-transform:uppercase;padding:0;display:flex;align-items:center;gap:4px;transition:color .2s}
 .job-expand-btn:hover{color:var(--text)}
 .job-expand-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform .2s}
@@ -291,97 +284,7 @@ a{color:inherit;text-decoration:none}
 .role-master{background:rgba(0,87,184,.12);color:#4d9fd6;border:1px solid rgba(0,87,184,.2)}
 .role-viewer{background:rgba(26,122,74,.1);color:var(--green2);border:1px solid rgba(26,122,74,.2)}
 
-/* ===================== PAYMENTS ===================== */
-.pay-block{margin-top:10px;padding-top:10px;border-top:1px solid #1e1e1e}
-.pay-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#555;margin-bottom:8px}
-.pay-bar-wrap{background:#0d0d0d;border-radius:6px;height:5px;margin-bottom:10px;overflow:hidden}
-.pay-bar-fill{height:5px;border-radius:6px;background:#27c47a;transition:width .3s}
-.pay-summary{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
-.pay-sum-item{background:#1a1a1a;border-radius:6px;padding:8px 10px;text-align:center}
-.pay-sum-label{font-size:10px;color:#555;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
-.pay-sum-val{font-size:14px;font-weight:800}
-.pay-list{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
-.pay-item{display:flex;align-items:center;gap:8px;background:#1a1a1a;border-radius:6px;padding:7px 10px;font-size:13px}
-.pay-item-date{color:#606060;font-size:11px;min-width:48px;flex-shrink:0}
-.pay-item-amount{color:#27c47a;font-weight:700;min-width:75px}
-.pay-item-note{color:#909090;flex:1;font-size:12px}
-.pay-add{display:grid;grid-template-columns:100px 1fr auto;gap:8px;align-items:end}
-@media(max-width:500px){.pay-add{grid-template-columns:1fr 1fr;}.pay-add button{grid-column:1/-1}}
-.debt-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.04em;margin-right:4px}
-.debt-full{background:rgba(220,50,50,.12);color:#e05050;border:1px solid rgba(220,50,50,.2)}
-.debt-part{background:rgba(239,159,39,.12);color:#ef9f27;border:1px solid rgba(239,159,39,.2)}
-.debt-paid{background:rgba(39,196,122,.12);color:#27c47a;border:1px solid rgba(39,196,122,.2)}
-
-/* ===================== REPAIR ANALYSIS ===================== */
-.ra-kpi{background:var(--bg4);border-radius:var(--radius);padding:8px 10px;text-align:center}
-.ra-kpi-label{font-size:10px;color:var(--text4);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
-.ra-kpi-val{font-size:16px;font-weight:800;line-height:1}
-.ra-kpi-sub{font-size:10px;color:var(--text4);margin-top:3px}
-.ra-works-head{display:grid;grid-template-columns:1fr 60px 70px;gap:4px;padding-bottom:5px;border-bottom:1px solid var(--border);font-size:10px;color:var(--text4);text-transform:uppercase;letter-spacing:.06em}
-.ra-works-row{display:grid;grid-template-columns:1fr 60px 70px;gap:4px;padding:5px 0;border-bottom:1px solid var(--bg4);font-size:12px;align-items:center}
-.ra-works-row:last-child{border:none}
-.ra-tag{font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle;white-space:nowrap}
-.ra-tag-w{background:rgba(239,159,39,.12);color:#ef9f27;border:1px solid rgba(239,159,39,.2)}
-.ra-tag-c{background:rgba(192,96,192,.12);color:#c060c0;border:1px solid rgba(192,96,192,.2)}
-.ra-sup-item{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--bg4)}
-.ra-sup-item:last-child{border:none}
-.ra-sup-count{flex:1;font-size:11px;color:var(--text4)}
-.ra-sup-vals{text-align:right;font-size:12px;line-height:1.6}
-.ra-sup-cost{color:var(--text3)}
-.ra-sup-margin{color:var(--green2);font-weight:700}
-
-/* ===================== CATALOG SECTIONS ===================== */
-.cat-section{border-radius:var(--radius2);overflow:hidden;margin-bottom:8px}
-.cat-section-parts{background:rgba(77,159,214,.04);border:1px solid rgba(77,159,214,.12)}
-.cat-section-codings{background:rgba(192,96,192,.04);border:1px solid rgba(192,96,192,.12)}
-.cat-section-works{background:rgba(39,196,122,.04);border:1px solid rgba(39,196,122,.12)}
-
-.cat-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;cursor:pointer;user-select:none;border-bottom:1px solid transparent;transition:background .15s}
-.cat-header:hover{background:rgba(255,255,255,.03)}
-.cat-section-parts   .cat-header{border-color:rgba(77,159,214,.1)}
-.cat-section-codings .cat-header{border-color:rgba(192,96,192,.1)}
-.cat-section-works   .cat-header{border-color:rgba(39,196,122,.1)}
-
-.cat-header-left{display:flex;align-items:center;gap:10px}
-.cat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.cat-section-parts   .cat-dot{background:#4d9fd6}
-.cat-section-codings .cat-dot{background:#c060c0}
-.cat-section-works   .cat-dot{background:#27c47a}
-
-.cat-name{font-size:14px;font-weight:700;color:var(--text)}
-.cat-count{font-size:11px;color:var(--text4);font-weight:600;background:var(--bg4);border:1px solid var(--border2);padding:1px 7px;border-radius:10px}
-.cat-price{font-size:12px;font-weight:700}
-.cat-section-parts   .cat-price{color:#4d9fd6}
-.cat-section-codings .cat-price{color:#c060c0}
-.cat-section-works   .cat-price{color:#27c47a}
-
-.cat-chevron{width:16px;height:16px;fill:none;stroke:var(--text4);stroke-width:2.5;transition:transform .2s;flex-shrink:0}
-.cat-section.open .cat-chevron{transform:rotate(180deg)}
-
-.cat-body{display:none;padding:10px 12px 12px}
-.cat-section.open .cat-body{display:block}
-
-/* collapsible parts row */
-.pt-row{background:var(--bg4);border:1px solid var(--border2);border-radius:var(--radius);margin-bottom:6px;overflow:hidden}
-.pt-row:last-child{margin-bottom:0}
-.pt-row-header{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;user-select:none;transition:background .15s}
-.pt-row-header:hover{background:rgba(255,255,255,.03)}
-.pt-row-chevron{width:14px;height:14px;fill:none;stroke:var(--text4);stroke-width:2.5;transition:transform .2s;flex-shrink:0;margin-left:auto}
-.pt-row.open .pt-row-chevron{transform:rotate(180deg)}
-.pt-row-fields-wrap{display:none;padding:0 12px 12px}
-.pt-row.open .pt-row-fields-wrap{display:block}
-
-/* collapsible codings/works row */
-.wt-row{background:var(--bg4);border:1px solid var(--border2);border-radius:var(--radius);margin-bottom:6px;overflow:hidden}
-.wt-row:last-child{margin-bottom:0}
-.wt-row-header{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;user-select:none;transition:background .15s}
-.wt-row-header:hover{background:rgba(255,255,255,.03)}
-.wt-row-chevron{width:14px;height:14px;fill:none;stroke:var(--text4);stroke-width:2.5;transition:transform .2s;flex-shrink:0;margin-left:auto}
-.wt-row.open .wt-row-chevron{transform:rotate(180deg)}
-.wt-row-fields-wrap{display:none;padding:0 12px 12px}
-.wt-row.open .wt-row-fields-wrap{display:block}
-
-.cat-add-box{border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-top:8px;background:rgba(0,0,0,.15)}
+/* ===================== LOADER ===================== */
 .loader{position:fixed;inset:0;background:rgba(13,13,13,.8);z-index:500;display:none;align-items:center;justify-content:center}
 .loader.show{display:flex}
 .loader-spin{width:36px;height:36px;border:3px solid var(--border2);border-top-color:var(--red);border-radius:50%;animation:spin .7s linear infinite}
@@ -491,14 +394,13 @@ a{color:inherit;text-decoration:none}
         <button class="fbadge active" onclick="setFilter('all',this)">Всі</button>
         <button class="fbadge" onclick="setFilter('open',this)">Відкриті</button>
         <button class="fbadge" onclick="setFilter('done',this)">Завершені</button>
-        <button class="fbadge" onclick="setFilter('debt',this)">Боржники</button>
       </div>
     </div>
     <div class="jobs" id="jobs-list"></div>
   </div>
 
   <!-- STATS TAB -->
-  <div class="main hidden" id="stats-tab" style="display:none">
+  <div class="main hidden" id="stats-tab">
     <div class="kpi-row" id="kpi-row"></div>
     <div class="period-row">
       <label>З</label>
@@ -507,26 +409,9 @@ a{color:inherit;text-decoration:none}
       <input type="date" id="stat-to">
       <button class="btn-p sm" onclick="renderStats()">Оновити</button>
     </div>
-
-    <!-- АНАЛІЗ ОКРЕМОГО РЕМОНТУ -->
-    <div class="stat-panel" style="margin-bottom:12px;border-color:#1e2d3a">
-      <div class="stat-panel-title" style="color:#4d9fd6">Аналіз окремого ремонту</div>
-      <select id="stat-repair-sel" onchange="renderRepairAnalysis()" style="width:100%;margin-bottom:12px;background:var(--bg4);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-size:13px;font-family:var(--font)">
-        <option value="">— оберіть ремонт —</option>
-      </select>
-      <div id="stat-repair-detail" style="display:none">
-        <div id="stat-repair-kpi" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px"></div>
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#606060;margin-bottom:6px">Роботи та кодування</div>
-        <div id="stat-repair-works"></div>
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#606060;margin:10px 0 6px">Запчастини по постачальнику</div>
-        <div id="stat-repair-suppliers"></div>
-      </div>
-      <div id="stat-repair-empty" style="color:var(--text3);font-size:13px">Оберіть ремонт зі списку</div>
-    </div>
-
     <div class="settings-grid">
       <div class="stat-panel">
-        <div class="stat-panel-title">Роботи — топ (завершені)</div>
+        <div class="stat-panel-title">Роботи — топ</div>
         <div id="stat-works"></div>
       </div>
       <div class="stat-panel">
@@ -539,17 +424,13 @@ a{color:inherit;text-decoration:none}
       <div id="stat-works-finance"></div>
     </div>
     <div class="stat-panel" style="margin-top:12px">
-      <div class="stat-panel-title">Боржники</div>
-      <div id="stat-debtors"></div>
-    </div>
-    <div class="stat-panel" style="margin-top:12px">
       <div class="stat-panel-title">Витрати запчастин за період</div>
       <div id="stat-parts"></div>
     </div>
   </div>
 
   <!-- SETTINGS TAB -->
-  <div class="main hidden" id="settings-tab" style="display:none">
+  <div class="main hidden" id="settings-tab">
     <div class="settings-grid">
       <!-- Постачальники -->
       <div class="settings-panel">
@@ -563,8 +444,11 @@ a{color:inherit;text-decoration:none}
       <!-- Запчастини -->
       <div class="settings-panel full">
         <div class="sp-title">Каталог запчастин</div>
+        <div class="pt-head">
+          <span>Назва</span><span>Од.</span><span>Прих. ціна</span><span>Націнка</span><span>Продаж</span><span></span>
+        </div>
         <div id="parts-list"></div>
-        <div class="cat-add-box">
+        <div style="border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-top:10px">
           <div style="display:grid;grid-template-columns:1fr 120px;gap:8px;margin-bottom:8px">
             <div class="fl"><label>Назва запчастини</label><input type="text" id="new-part-name" placeholder="Моторна олива 5W-30"></div>
             <div class="fl"><label>Одиниця</label>
@@ -598,28 +482,30 @@ a{color:inherit;text-decoration:none}
       <!-- Кодування -->
       <div class="settings-panel full">
         <div class="sp-title">Каталог кодувань</div>
+        <div class="wt-head">
+          <span>Назва кодування</span><span>Роздрібна (грн)</span><span>Собівартість (грн)</span><span></span>
+        </div>
         <div id="codings-list"></div>
-        <div class="cat-add-box">
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <input type="text" id="new-coding-name" placeholder="Назва кодування" style="flex:2;min-width:150px">
-            <input type="number" id="new-coding-retail" placeholder="Роздрібна" style="width:120px">
-            <input type="number" id="new-coding-cost" placeholder="Собівартість" style="width:120px">
-            <button class="btn-p sm" onclick="addCoding()">+ Додати</button>
-          </div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <input type="text" id="new-coding-name" placeholder="Назва кодування" style="flex:2;min-width:150px">
+          <input type="number" id="new-coding-retail" placeholder="Роздрібна" style="width:120px">
+          <input type="number" id="new-coding-cost" placeholder="Собівартість" style="width:120px">
+          <button class="btn-p sm" onclick="addCoding()">+ Додати</button>
         </div>
       </div>
 
       <!-- Каталог робіт -->
       <div class="settings-panel full">
         <div class="sp-title">Каталог робіт</div>
+        <div class="wt-head">
+          <span>Назва роботи</span><span>Роздрібна (грн)</span><span>Собівартість (грн)</span><span></span>
+        </div>
         <div id="works-list"></div>
-        <div class="cat-add-box">
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <input type="text" id="new-work-name" placeholder="Назва роботи" style="flex:2;min-width:150px">
-            <input type="number" id="new-work-retail" placeholder="Роздрібна" style="width:120px">
-            <input type="number" id="new-work-cost" placeholder="Собівартість" style="width:120px">
-            <button class="btn-p sm" onclick="addWork()">+ Додати</button>
-          </div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <input type="text" id="new-work-name" placeholder="Назва роботи" style="flex:2;min-width:150px">
+          <input type="number" id="new-work-retail" placeholder="Роздрібна" style="width:120px">
+          <input type="number" id="new-work-cost" placeholder="Собівартість" style="width:120px">
+          <button class="btn-p sm" onclick="addWork()">+ Додати</button>
         </div>
       </div>
       <!-- Користувачі -->
@@ -770,7 +656,7 @@ a{color:inherit;text-decoration:none}
 // ============================================================
 // CONFIG — замін на свій URL від Apps Script
 // ============================================================
-let API_URL = localStorage.getItem('bg_api_url') || 'https://script.google.com/macros/s/AKfycbwEX5Mhn87bHW59KIwyP7klbxpFHowTKgtx8Eb-xY_IEXGzVMCMaFliIEMbXYOyLEM/exec';
+let API_URL = localStorage.getItem('bg_api_url') || 'https://script.google.com/macros/s/AKfycbzYwXXDJHDd_5F9pKy0-Y49T3Eu5MWWHv6eCrimJgLS2ETa5J28HNBc-P-n1WNIDtTH/exec';
 
 // ============================================================
 // STATE
@@ -794,21 +680,6 @@ let state = {
   partUnit: 'шт',
   newPartUnit: 'шт',
 };
-
-// ============================================================
-// SECURITY: XSS Prevention
-// ============================================================
-function escapeHtml(str) {
-  if (str == null) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
-// Safe number formatter — numbers can't contain HTML, no escape needed
-function fmtNum(n) { return Number(n) || 0; }
 
 // ============================================================
 // API
@@ -955,8 +826,7 @@ function showTab(name, el) {
   const ids = { repairs: ['tab-repairs','tab-repairs-m'], stats: ['tab-stats','tab-stats-m'], settings: ['tab-settings','tab-settings-m'] };
   (ids[name] || []).forEach(id => { const b = document.getElementById(id); if(b) b.classList.add('active'); });
   ['repairs','stats','settings'].forEach(t => {
-    const el = document.getElementById(t + '-tab');
-    if (el) el.style.display = (t === name) ? '' : 'none';
+    document.getElementById(t + '-tab').classList.toggle('hidden', t !== name);
   });
   if (name === 'stats') renderStats();
   if (name === 'settings') renderSettings();
@@ -975,13 +845,8 @@ function setFilter(f, el) {
 function renderRepairs() {
   const q = (document.getElementById('search-input').value || '').toLowerCase();
   let list = state.repairs.filter(j => {
-    const m = !q || (j.car + (j.client||'') + (j.work||'') + (j.vin||'')).toLowerCase().includes(q);
-    const paid = (j.payments||[]).reduce((s,p) => s + (p.amount||0), 0);
-    const debt = (j.total||0) - paid;
-    let s;
-    if (state.filter === 'debt') s = debt > 0;
-    else if (state.filter === 'all') s = true;
-    else s = j.status === state.filter;
+    const m = !q || (j.car + j.client + j.work + (j.vin||'')).toLowerCase().includes(q);
+    const s = state.filter === 'all' || j.status === state.filter;
     return m && s;
   });
 
@@ -997,61 +862,33 @@ function renderRepairs() {
   el.innerHTML = list.map(j => repairCard(j)).join('');
 }
 
-function supClass(name) {
-  if (!name) return 'sup-default';
-  const n = name.toLowerCase();
-  if (n.includes('автоаптека')) return 'sup-avtoapt';
-  if (n.includes('автотехнікс') || n.includes('автотех')) return 'sup-avtoteh';
-  if (n.includes('місцевий')) return 'sup-local';
-  if (n.includes('rockauto')) return 'sup-rockauto';
-  if (n.includes('ori') || n === 'орі') return 'sup-ori';
-  return 'sup-default';
-}
-
 function repairCard(j) {
   const isDone = j.status === 'done';
   const partsTotal   = (j.parts   || []).reduce((s, p) => s + (p.sale * p.qty), 0);
   const costTotal    = (j.parts   || []).reduce((s, p) => s + ((p.cost||0) * p.qty), 0);
   const worksTotal   = (j.works   || []).reduce((s, w) => s + (w.retail || 0), 0);
   const codingsTotal = (j.codings || []).reduce((s, c) => s + (c.retail || 0), 0);
-  const margin    = partsTotal - costTotal;
-  const total     = worksTotal + codingsTotal + partsTotal;
-  const canEdit   = state.role !== 'viewer';
-  const isAdmin   = state.role === 'admin';
-  const paid      = (j.payments||[]).reduce((s,p) => s + (p.amount||0), 0);
-  const debt      = Math.round((j.total||0) - paid);
-  const payPct    = j.total > 0 ? Math.min(100, Math.round(paid / j.total * 100)) : 0;
-  const debtBadge = debt > 0 && paid > 0
-    ? `<span class="debt-badge debt-part">Борг: ${debt.toLocaleString()} грн</span>`
-    : debt > 0 && paid === 0
-    ? `<span class="debt-badge debt-full">Борг: ${debt.toLocaleString()} грн</span>`
-    : paid > 0 && total > 0 && debt <= 0
-    ? `<span class="debt-badge debt-paid">✓ Сплачено</span>`
-    : paid > 0 && total === 0
-    ? `<span class="debt-badge debt-part">Аванс: ${paid.toLocaleString()} грн</span>`
-    : '';
-  const marginHtml = isAdmin && margin > 0
-    ? `<span class="divider"></span><span class="job-meta" style="color:var(--green2)">маржа запч.: ${Math.round(margin)} грн</span>`
-    : '';
+  const margin = partsTotal - costTotal;
+  const total  = worksTotal + codingsTotal + partsTotal;
 
   const partsHtml = (j.parts || []).length ? `
     <div class="chips">
       ${j.parts.map(p => {
         const saleAmt = Math.round(p.sale * p.qty);
         const costAmt = Math.round((p.cost||0) * p.qty);
-        const margin  = saleAmt - costAmt;
         const isAdmin = state.role === 'admin';
-        return `<div class="chip" onclick="${isAdmin ? 'toggleChip(this)' : ''}">
-          <span class="chip-pub" style="flex:1">
-            <span style="color:#e0e0e0">${escapeHtml(p.name)}</span>
-            <b class="chip-price"> ${saleAmt.toLocaleString()} грн</b>
-            <span style="color:#606060"> · ${fmtNum(p.qty)} ${escapeHtml(p.unit||'шт')} · </span>
-            <span class="sup-badge ${supClass(p.supplier)}">${escapeHtml(p.supplier||'—')}</span>
-          </span>
-          ${isAdmin ? `<span class="chip-secret" style="color:var(--text3);font-size:11px;margin-left:8px">прихідна: ${costAmt} грн · +${margin} грн</span>` : ''}
+        return `<div class="chip" onclick="toggleChip(this)" title="${isAdmin ? 'Натисни щоб побачити прихідну ціну' : ''}">
+          <span class="chip-pub">${p.name} <b>${saleAmt} грн</b> · ${p.qty} ${p.unit||'шт'}</span>
+          ${isAdmin ? `<span class="chip-secret">↳ прихідна: ${costAmt} грн · ${p.supplier||'—'} · маржа: ${saleAmt-costAmt} грн</span>` : ''}
         </div>`;
       }).join('')}
-    </div>` : ''
+    </div>` : '';
+
+  const marginHtml = state.role === 'admin' && margin > 0
+    ? `<span class="divider"></span><span class="job-meta" style="color:var(--green2)">маржа запч.: ${Math.round(margin)} грн</span>`
+    : '';
+
+  const canEdit = state.role !== 'viewer';
   const actionsHtml = `<div class="job-actions">
     <button class="ja-btn" onclick="sharePDF(${j.id})">
       <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
@@ -1076,161 +913,67 @@ function repairCard(j) {
     <div class="job-inner">
       <div class="job-r1">
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;flex:1;cursor:pointer" onclick="toggleCard('${j.id}')">
-          <span class="job-car">${escapeHtml(j.car)}</span>
-          ${j.vin ? `<span class="job-plate">${escapeHtml(j.vin)}</span>` : ''}
+          <span class="job-car">${j.car}</span>
+          ${j.vin ? `<span class="job-plate">${j.vin}</span>` : ''}
         </div>
         <div class="job-r1-right">
-          ${debtBadge}
           <span class="status ${isDone ? 's-done' : 's-open'}">${isDone ? 'Завершений' : 'В роботі'}</span>
           <button class="job-expand-btn" id="expand-btn-${j.id}" onclick="toggleCard('${j.id}')">
             <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
         </div>
       </div>
-      ${j.client ? `
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid #1e1e1e;border-bottom:1px solid #1e1e1e;margin-bottom:6px;cursor:pointer" onclick="toggleCard('${j.id}')">
-        <span style="font-size:16px;font-weight:700;color:#e8e8e8">${escapeHtml(j.client)}</span>
-        <span class="job-price">${Math.round(total)} грн</span>
-      </div>` : `
-      <div style="display:flex;justify-content:flex-end;margin-bottom:4px;cursor:pointer" onclick="toggleCard('${j.id}')">
-        <span class="job-price">${Math.round(total)} грн</span>
-      </div>`}
       <div class="job-r2" style="cursor:pointer" onclick="toggleCard('${j.id}')">
         <span class="job-work">
-          ${(j.works||[]).length ? (j.works||[]).map(w=>escapeHtml(w.name)).join(', ') :
-            (j.codings||[]).length ? (j.codings||[]).map(c=>escapeHtml(c.name)).join(', ') : '—'}
+          ${(j.works||[]).length ? (j.works||[]).map(w=>w.name).join(', ') :
+            (j.codings||[]).length ? (j.codings||[]).map(c=>c.name).join(', ') : '—'}
         </span>
+        <span class="job-price">${Math.round(total)} грн</span>
       </div>
       <div class="job-r3">
-        ${''}
+        ${j.client ? `<span class="job-meta"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-8 0v2"/><circle cx="16" cy="7" r="4"/></svg>${j.client}</span>` : ''}
         ${j.client && j.date ? '<div class="divider"></div>' : ''}
-        ${j.date ? `<span class="job-meta"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${escapeHtml(j.date)}</span>` : ''}
+        ${j.date ? `<span class="job-meta"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${j.date}</span>` : ''}
         ${marginHtml}
       </div>
 
       <!-- РОЗГОРНУТА КАРТКА -->
       <div class="job-details" id="details-${j.id}">
-        ${j.phone ? `<div class="job-detail-row"><span class="job-detail-label">Телефон:</span><span class="job-detail-val"><a href="tel:${escapeHtml(j.phone)}" style="color:var(--green2)">${escapeHtml(j.phone)}</a></span></div>` : ''}
-        ${j.vin ? `<div class="job-detail-row"><span class="job-detail-label">VIN / Номер:</span><span class="job-detail-val">${escapeHtml(j.vin)}</span></div>` : ''}
-        ${j.notes ? `<div class="job-detail-row"><span class="job-detail-label">Нотатки:</span><span class="job-detail-val" style="color:var(--text2)">${escapeHtml(j.notes)}</span></div>` : ''}
+        ${j.phone ? `<div class="job-detail-row"><span class="job-detail-label">Телефон:</span><span class="job-detail-val"><a href="tel:${j.phone}" style="color:var(--green2)">${j.phone}</a></span></div>` : ''}
+        ${j.vin ? `<div class="job-detail-row"><span class="job-detail-label">VIN / Номер:</span><span class="job-detail-val">${j.vin}</span></div>` : ''}
+        ${j.notes ? `<div class="job-detail-row"><span class="job-detail-label">Нотатки:</span><span class="job-detail-val" style="color:var(--text2)">${j.notes}</span></div>` : ''}
         ${(j.works||[]).length ? `
-          <div style="margin-top:10px">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#EF9F27;border-left:3px solid #EF9F27;padding-left:6px;border-radius:0;margin-bottom:5px">Роботи</div>
-            ${j.works.map(w => `<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px;padding:3px 0;min-width:0">
-              <span style="flex:1;min-width:0;word-break:break-word;color:#EF9F27">${escapeHtml(w.name)}</span>
-              <span style="font-weight:600;white-space:nowrap;flex-shrink:0;color:#fff">${fmtNum(w.retail)} грн${state.role==='admin'&&w.cost?`<span style="color:#707070;font-size:11px;margin-left:6px">собів: ${fmtNum(w.cost)} грн</span>`:''}</span>
+          <div style="margin-top:8px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Роботи</div>
+            ${j.works.map(w => `<div style="display:flex;justify-content:space-between;font-size:13px;padding:3px 0">
+              <span>${w.name}</span>
+              <span style="font-weight:600">${w.retail||0} грн${state.role==='admin'&&w.cost?'<span style=color:var(--text3);font-size:11px;margin-left:6px>собів: '+w.cost+' грн</span>':''}</span>
             </div>`).join('')}
           </div>` : ''}
         ${(j.codings||[]).length ? `
-          <div style="margin-top:10px">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#c060c0;border-left:3px solid #c060c0;padding-left:6px;border-radius:0;margin-bottom:5px">Кодування</div>
-            ${j.codings.map(c => `<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px;padding:3px 0;min-width:0">
-              <span style="flex:1;min-width:0;word-break:break-word;color:#c060c0">${escapeHtml(c.name)}</span>
-              <span style="font-weight:600;white-space:nowrap;flex-shrink:0;color:#fff">${fmtNum(c.retail)} грн${state.role==='admin'&&c.cost?`<span style="color:#707070;font-size:11px;margin-left:6px">собів: ${fmtNum(c.cost)} грн</span>`:''}</span>
+          <div style="margin-top:8px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px">Кодування</div>
+            ${j.codings.map(c => `<div style="display:flex;justify-content:space-between;font-size:13px;padding:3px 0">
+              <span>${c.name}</span>
+              <span style="font-weight:600">${c.retail||0} грн${state.role==='admin'&&c.cost?'<span style=color:var(--text3);font-size:11px;margin-left:6px>собів: '+c.cost+' грн</span>':''}</span>
             </div>`).join('')}
           </div>` : ''}
         ${(j.parts||[]).length ? `
-          <div style="margin-top:10px">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#4d9fd6;border-left:3px solid #4d9fd6;padding-left:6px;border-radius:0;margin-bottom:5px">Запчастини</div>
+          <div style="margin-top:8px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:6px">Запчастини</div>
             ${j.parts.map(p => {
               const saleAmt = Math.round(p.sale * p.qty);
               const costAmt = Math.round((p.cost||0) * p.qty);
-              return `<div class="chip" style="margin-bottom:4px;cursor:${state.role==='admin'?'pointer':'default'};flex-wrap:wrap;gap:4px" onclick="${state.role==='admin'?`toggleChip(this)`:''}">
-                <span class="chip-pub" style="display:flex;flex-wrap:wrap;align-items:center;gap:4px;width:100%">
-                  <span style="color:#e0e0e0;flex:1;min-width:0;word-break:break-word">${escapeHtml(p.name)}</span>
-                  <b style="color:#27c47a;white-space:nowrap">${saleAmt} грн</b>
-                  <span style="color:#909090;white-space:nowrap;font-size:11px">${fmtNum(p.qty)} ${escapeHtml(p.unit||'шт')}</span>
-                  <span class="sup-badge ${supClass(p.supplier)}">${escapeHtml(p.supplier||'—')}</span>
-                </span>
-                ${state.role==='admin' ? `<span class="chip-secret" style="color:#707070;font-size:11px;width:100%">↳ прихідна: ${costAmt} грн · маржа: ${saleAmt-costAmt} грн</span>` : ''}
+              return `<div class="chip" style="margin-bottom:4px;cursor:${state.role==='admin'?'pointer':'default'}" onclick="${state.role==='admin'?`toggleChip(this)`:''}">
+                <span class="chip-pub">${p.name} <b>${saleAmt} грн</b> · ${p.qty} ${p.unit||'шт'} · ${p.supplier||'—'}</span>
+                ${state.role==='admin' ? `<span class="chip-secret">↳ прихідна: ${costAmt} грн · маржа: ${saleAmt-costAmt} грн</span>` : ''}
               </div>`;
             }).join('')}
           </div>` : ''}
-        <!-- БЛОК ОПЛАТ -->
-        <div class="pay-block">
-          <div class="pay-title">Оплата</div>
-          <div class="pay-bar-wrap">
-            <div class="pay-bar-fill" style="width:${payPct}%"></div>
-          </div>
-          <div class="pay-summary">
-            <div class="pay-sum-item">
-              <div class="pay-sum-label">Всього</div>
-              <div class="pay-sum-val" style="color:#fff">${(j.total||0).toLocaleString()}</div>
-            </div>
-            <div class="pay-sum-item">
-              <div class="pay-sum-label">Сплачено</div>
-              <div class="pay-sum-val" style="color:#27c47a">${paid.toLocaleString()}</div>
-            </div>
-            <div class="pay-sum-item">
-              <div class="pay-sum-label">Борг</div>
-              <div class="pay-sum-val" style="color:${debt>0?'#ef9f27':'#27c47a'}">${debt.toLocaleString()}</div>
-            </div>
-          </div>
-          ${(j.payments||[]).length ? `
-          <div class="pay-list">
-            ${j.payments.map((p,i) => `<div class="pay-item">
-              <span class="pay-item-date">${escapeHtml(p.date||'—')}</span>
-              <span class="pay-item-amount">${(p.amount||0).toLocaleString()} грн</span>
-              <span class="pay-item-note">${escapeHtml(p.note||'')}</span>
-              ${canEdit ? `<button onclick="removePayment('${j.id}',${i})" style="background:none;border:none;color:#444;cursor:pointer;font-size:16px;padding:0 4px">×</button>` : ''}
-            </div>`).join('')}
-          </div>` : '<div style="font-size:13px;color:#555;margin-bottom:10px">Платежів ще немає</div>'}
-          ${canEdit ? `
-          <div class="pay-add">
-            <div class="fl"><label>Сума (грн)</label><input type="number" id="pay-amt-${j.id}" placeholder="0" min="0" style="width:100%"></div>
-            <div class="fl"><label>Коментар</label><input type="text" id="pay-note-${j.id}" placeholder="аванс, часткова..."></div>
-            <button class="btn-p sm" style="align-self:end" onclick="addPayment('${j.id}')">+ Платіж</button>
-          </div>` : ''}
-        </div>
         ${actionsHtml}
       </div>
     </div>
   </div>`;
-}
-
-async function addPayment(repairId) {
-  const amtEl  = document.getElementById('pay-amt-'  + repairId);
-  const noteEl = document.getElementById('pay-note-' + repairId);
-  const amount = parseFloat(amtEl?.value) || 0;
-  const note   = noteEl?.value.trim() || '';
-  if (!amount) { toast('Введіть суму платежу', 'error'); return; }
-
-  const j = state.repairs.find(r => r.id == repairId);
-  if (!j) return;
-
-  const today = new Date().toISOString().split('T')[0];
-  const payment = { date: today, amount, note };
-  const payments = [...(j.payments || []), payment];
-  const paid = payments.reduce((s, p) => s + (p.amount||0), 0);
-  const updated = { ...j, payments, paid };
-
-  state.repairs = state.repairs.map(r => r.id == repairId ? updated : r);
-  renderRepairs();
-  if (amtEl)  amtEl.value  = '';
-  if (noteEl) noteEl.value = '';
-
-  api({ action: 'saveRepair', repair: updated }).then(res => {
-    if (res.ok) { localStorage.removeItem('bg_cache_v2'); toast('Платіж додано', 'success'); }
-    else toast(res.error || 'Помилка', 'error');
-  });
-}
-
-async function removePayment(repairId, idx) {
-  if (!confirm('Видалити цей платіж?')) return;
-  const j = state.repairs.find(r => r.id == repairId);
-  if (!j) return;
-
-  const payments = (j.payments || []).filter((_, i) => i !== idx);
-  const paid = payments.reduce((s, p) => s + (p.amount||0), 0);
-  const updated = { ...j, payments, paid };
-
-  state.repairs = state.repairs.map(r => r.id == repairId ? updated : r);
-  renderRepairs();
-
-  api({ action: 'saveRepair', repair: updated }).then(res => {
-    if (res.ok) { localStorage.removeItem('bg_cache_v2'); toast('Платіж видалено', 'success'); }
-    else toast(res.error || 'Помилка', 'error');
-  });
 }
 
 function toggleCard(id) {
@@ -1331,10 +1074,6 @@ function openRepairModal(id = null) {
   renderFormCodings();
   renderFormParts();
   calcFormTotal();
-  // Hide admin-only fields based on role
-  document.querySelectorAll('#repair-modal .admin-only').forEach(el => {
-    el.style.display = state.role === 'admin' ? '' : 'none';
-  });
   openModal('repair-modal');
 }
 
@@ -1342,14 +1081,14 @@ function fillWorkSelect() {
   const sel = document.getElementById('f-work-sel');
   if (!sel) return;
   sel.innerHTML = '<option value="">— з каталогу —</option>' +
-    state.works.map(w => `<option value="${escapeHtml(w.id)}" data-retail="${fmtNum(w.retail)}" data-cost="${fmtNum(w.cost)}">${escapeHtml(w.name)}</option>`).join('');
+    state.works.map(w => `<option value="${w.id}" data-retail="${w.retail}" data-cost="${w.cost||0}">${w.name}</option>`).join('');
 }
 
 function fillCodingSelect() {
   const sel = document.getElementById('f-coding-sel');
   if (!sel) return;
   sel.innerHTML = '<option value="">— з каталогу —</option>' +
-    state.codings.map(c => `<option value="${escapeHtml(c.id)}" data-retail="${fmtNum(c.retail)}" data-cost="${fmtNum(c.cost)}">${escapeHtml(c.name)}</option>`).join('');
+    state.codings.map(c => `<option value="${c.id}" data-retail="${c.retail}" data-cost="${c.cost||0}">${c.name}</option>`).join('');
 }
 
 // ---- WORKS in form ----
@@ -1424,8 +1163,9 @@ function renderFormWorks() {
   el.innerHTML = state.formWorks.map(w => `
     <div class="part-item" id="witem-${w.id}">
       <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-        <span class="part-item-name" style="flex:1">${escapeHtml(w.name)}</span>
-        <span class="wi-price part-item-price">${fmtNum(w.retail)} грн</span>
+        <span class="part-item-name" style="flex:1">${w.name}</span>
+        <span class="wi-price part-item-price">${w.retail || 0} грн</span>
+        <button class="btn-d" style="padding:3px 9px;font-size:13px" title="Редагувати" onclick="toggleWorkEdit(${w.id})">✎</button>
         <button class="btn-d" style="padding:3px 8px" onclick="removeFormWork(${w.id})">×</button>
       </div>
       <div class="part-item-edit" id="wedit-${w.id}">
@@ -1519,8 +1259,8 @@ function renderFormCodings() {
   el.innerHTML = state.formCodings.map(c => `
     <div class="part-item" id="citem-${c.id}">
       <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-        <span class="part-item-name" style="flex:1">${escapeHtml(c.name)}</span>
-        <span class="ci-price part-item-price">${fmtNum(c.retail)} грн</span>
+        <span class="part-item-name" style="flex:1">${c.name}</span>
+        <span class="ci-price part-item-price">${c.retail || 0} грн</span>
         <button class="btn-d" style="padding:3px 9px;font-size:13px" title="Редагувати" onclick="toggleCodingEdit(${c.id})">✎</button>
         <button class="btn-d" style="padding:3px 8px" onclick="removeFormCoding(${c.id})">×</button>
       </div>
@@ -1545,18 +1285,18 @@ function renderFormCodings() {
 
 function fillSupplierSelect() {
   const sel = document.getElementById('p-supplier');
-  sel.innerHTML = state.suppliers.map(s => `<option value="${escapeHtml(s.name)}">${escapeHtml(s.name)}</option>`).join('');
+  sel.innerHTML = state.suppliers.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
 }
 
 function fillPartCatSelect() {
   const sel = document.getElementById('p-cat-sel');
   sel.innerHTML = '<option value="">— вибрати —</option>' +
-    state.parts.map(p => `<option value="${escapeHtml(p.id)}"
-      data-unit="${escapeHtml(p.unit)}"
-      data-cost="${fmtNum(p.cost)}"
-      data-markup="${fmtNum(p.markup)}"
-      data-markuptype="${escapeHtml(p.markupType || 'pct')}"
-    >${escapeHtml(p.name)} (${escapeHtml(p.unit)})</option>`).join('');
+    state.parts.map(p => `<option value="${p.id}"
+      data-unit="${p.unit}"
+      data-cost="${p.cost || 0}"
+      data-markup="${p.markup || 0}"
+      data-markuptype="${p.markupType || 'pct'}"
+    >${p.name} (${p.unit})</option>`).join('');
 }
 
 function onWorkSelect() {
@@ -1679,13 +1419,13 @@ function renderFormParts() {
     const costTotal = Math.round((p.cost||0) * p.qty);
     const margin = saleTotal - costTotal;
     const supOptions = state.suppliers.map(s =>
-      `<option value="${escapeHtml(s.name)}" ${s.name === p.supplier ? 'selected' : ''}>${escapeHtml(s.name)}</option>`
+      `<option value="${s.name}" ${s.name === p.supplier ? 'selected' : ''}>${s.name}</option>`
     ).join('');
     return `<div class="part-item" id="pitem-${p.id}">
       <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-        <span class="part-item-name" style="flex:1">${escapeHtml(p.name)}</span>
-        <span class="part-item-unit">${fmtNum(p.qty)} ${escapeHtml(p.unit||'шт')}</span>
-        ${p.supplier ? `<span class="part-item-unit" style="color:var(--text3)">${escapeHtml(p.supplier)}</span>` : ''}
+        <span class="part-item-name" style="flex:1">${p.name}</span>
+        <span class="part-item-unit">${p.qty} ${p.unit||'шт'}</span>
+        ${p.supplier ? `<span class="part-item-unit" style="color:var(--text3)">${p.supplier}</span>` : ''}
         <span class="part-item-price">${saleTotal} грн</span>
         <button class="btn-d" style="padding:3px 9px;font-size:13px" title="Редагувати" onclick="togglePartEdit(${p.id})">✎</button>
         <button class="btn-d" style="padding:3px 8px" onclick="removeFormPart(${p.id})">×</button>
@@ -1854,9 +1594,6 @@ async function saveRepair() {
     worksCost:    Math.round(worksCost),
     codingsCost:  Math.round(codingsCost),
     total: grandTotal,
-    // Зберігаємо існуючі платежі якщо це редагування
-    payments: state.editId ? (state.repairs.find(r => r.id == state.editId)?.payments || []) : [],
-    paid:     state.editId ? (state.repairs.find(r => r.id == state.editId)?.paid     || 0)  : 0,
   };
 
   // Оптимістично додаємо/оновлюємо одразу
@@ -1869,25 +1606,10 @@ async function saveRepair() {
   closeModal('repair-modal');
   toast('Ремонт збережено', 'success');
 
-  // Зберігаємо і оновлюємо з сервера
-  console.log('Saving repair:', JSON.stringify({
-    id: repair.id,
-    works: repair.works,
-    codings: repair.codings,
-    worksTotal: repair.worksTotal
-  }));
-  api({ action: 'saveRepair', repair }).then(async res => {
-    console.log('Server response:', JSON.stringify(res));
-    if (!res.ok) {
-      toast(res.error || 'Помилка збереження', 'error');
-    } else {
-      localStorage.removeItem('bg_cache_v2');
-      // Підвантажуємо свіжі дані з сервера щоб отримати збережені works/codings
-      try {
-        const fresh = await api({ action: 'initData' });
-        if (fresh && fresh.ok) { applyData(fresh); saveCache(fresh); renderRepairs(); }
-      } catch(e) {}
-    }
+  // Зберігаємо у фоні
+  api({ action: 'saveRepair', repair }).then(res => {
+    if (!res.ok) toast(res.error || 'Помилка синхронізації', 'error');
+    else localStorage.removeItem('bg_cache_v2');
   }).catch(() => {});
 }
 
@@ -1898,14 +1620,10 @@ async function sharePDF(id) {
   const j = state.repairs.find(r => r.id == id);
   if (!j) return;
 
-  // Розраховуємо суми правильно
-  const worksTotal   = (j.works   || []).reduce((s, w) => s + (w.retail || 0), 0);
-  const codingsTotal = (j.codings || []).reduce((s, c) => s + (c.retail || 0), 0);
-  const partsTotal   = (j.parts   || []).reduce((s, p) => s + (p.sale || 0) * (p.qty || 1), 0);
-  const grandTotal   = Math.round(worksTotal + codingsTotal + partsTotal);
-  const paid         = (j.payments || []).reduce((s, p) => s + (p.amount || 0), 0);
-  const debt         = Math.max(0, grandTotal - Math.round(paid));
+  const partsTotal = (j.parts || []).reduce((s, p) => s + p.sale * p.qty, 0);
+  const total = (j.labor || 0) + partsTotal;
 
+  // Генеруємо HTML для друку
   const html = `<!DOCTYPE html>
 <html>
 <head>
@@ -1918,7 +1636,7 @@ async function sharePDF(id) {
   .brand{font-size:22px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#111}
   .brand-sub{font-size:10px;color:#888;letter-spacing:.05em;margin-top:2px}
   .red-line{border:none;border-top:2px solid #cc0000;margin:4mm 0}
-  .section-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:5mm 0 3mm;color:#333;border-left:3px solid #cc0000;padding-left:4px}
+  .section-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:5mm 0 3mm;color:#333}
   .field-row{display:flex;margin-bottom:3mm}
   .field-label{font-weight:700;min-width:35mm;color:#555;font-size:11px}
   .field-val{color:#111;font-size:11px}
@@ -1926,20 +1644,17 @@ async function sharePDF(id) {
   th{text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;padding:2mm 0;border-bottom:1px solid #ddd}
   td{padding:2.5mm 0;border-bottom:1px solid #f0f0f0;font-size:11px;vertical-align:middle}
   td:last-child{text-align:right;font-weight:600}
-  .subtotal-row td{font-weight:700;color:#333;border-top:1px solid #ddd;border-bottom:none;padding-top:3mm}
-  .total-block{margin-top:4mm;padding-top:4mm;border-top:2px solid #cc0000}
-  .total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:2mm}
-  .total-label{font-size:12px;font-weight:700;color:#555}
-  .total-val{font-size:14px;font-weight:800;color:#111}
-  .grand-label{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
-  .grand-val{font-size:20px;font-weight:800;color:#cc0000}
-  .debt-val{font-size:16px;font-weight:800;color:#cc0000}
-  .paid-val{font-size:14px;font-weight:700;color:#228844}
+  .total-row{display:flex;justify-content:space-between;align-items:center;margin-top:4mm;padding-top:4mm;border-top:2px solid #cc0000}
+  .total-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+  .total-val{font-size:18px;font-weight:800;color:#111}
   .sign-row{display:flex;justify-content:space-between;margin-top:14mm;font-size:11px;color:#555}
   .sign-line{display:inline-block;width:55mm;border-bottom:1px solid #999;margin-left:3mm}
   .mstripe{display:flex;gap:2px;margin-top:2mm}
   .mstripe span{display:block;height:3px;width:22px;border-radius:1px}
-  @media print{body{padding:15mm}@page{margin:0;size:A4}}
+  @media print{
+    body{padding:15mm}
+    @page{margin:0;size:A4}
+  }
 </style>
 </head>
 <body>
@@ -1955,44 +1670,20 @@ async function sharePDF(id) {
   <hr class="red-line">
 
   <div class="section-title">Наряд-замовлення</div>
-  <div class="field-row"><span class="field-label">Авто:</span><span class="field-val"><b>${escapeHtml(j.car)}</b>${j.vin ? ' / ' + escapeHtml(j.vin) : ''}</span></div>
-  <div class="field-row"><span class="field-label">Клієнт:</span><span class="field-val">${escapeHtml(j.client || '—')}</span></div>
-  <div class="field-row"><span class="field-label">Телефон:</span><span class="field-val">${escapeHtml(j.phone || '—')}</span></div>
-  <div class="field-row"><span class="field-label">Дата:</span><span class="field-val">${escapeHtml(j.date || '—')}</span></div>
-  <div class="field-row"><span class="field-label">Статус:</span><span class="field-val">${j.status === 'done' ? '✓ Завершений' : '⏳ В роботі'}</span></div>
-  ${j.notes ? `<div class="field-row"><span class="field-label">Нотатки:</span><span class="field-val">${escapeHtml(j.notes)}</span></div>` : ''}
 
-  ${(j.works && j.works.length) ? `
+  <div class="field-row"><span class="field-label">Авто:</span><span class="field-val"><b>${j.car}</b>${j.vin ? ' / ' + j.vin : ''}</span></div>
+  <div class="field-row"><span class="field-label">Клієнт:</span><span class="field-val">${j.client || '—'}</span></div>
+  <div class="field-row"><span class="field-label">Телефон:</span><span class="field-val">${j.phone || '—'}</span></div>
+  <div class="field-row"><span class="field-label">Дата:</span><span class="field-val">${j.date || '—'}</span></div>
+  <div class="field-row"><span class="field-label">Статус:</span><span class="field-val">${j.status === 'done' ? '✓ Завершений' : '⏳ В роботі'}</span></div>
+
   <div class="section-title">Виконані роботи</div>
   <table>
-    <thead><tr><th>Вид роботи</th><th style="text-align:right">Сума</th></tr></thead>
+    <thead><tr><th>Опис роботи</th><th style="text-align:right">Сума</th></tr></thead>
     <tbody>
-      ${j.works.map(w => `<tr>
-        <td>${escapeHtml(w.name)}</td>
-        <td>${Math.round(w.retail || 0).toLocaleString()} грн</td>
-      </tr>`).join('')}
-      <tr class="subtotal-row">
-        <td>Разом роботи:</td>
-        <td>${Math.round(worksTotal).toLocaleString()} грн</td>
-      </tr>
+      <tr><td>${j.work}</td><td>${(j.labor || 0).toLocaleString()} грн</td></tr>
     </tbody>
-  </table>` : ''}
-
-  ${(j.codings && j.codings.length) ? `
-  <div class="section-title">Кодування</div>
-  <table>
-    <thead><tr><th>Вид кодування</th><th style="text-align:right">Сума</th></tr></thead>
-    <tbody>
-      ${j.codings.map(c => `<tr>
-        <td>${escapeHtml(c.name)}</td>
-        <td>${Math.round(c.retail || 0).toLocaleString()} грн</td>
-      </tr>`).join('')}
-      <tr class="subtotal-row">
-        <td>Разом кодування:</td>
-        <td>${Math.round(codingsTotal).toLocaleString()} грн</td>
-      </tr>
-    </tbody>
-  </table>` : ''}
+  </table>
 
   ${(j.parts && j.parts.length) ? `
   <div class="section-title">Запчастини та матеріали</div>
@@ -2000,35 +1691,17 @@ async function sharePDF(id) {
     <thead><tr><th>Назва</th><th>К-ть</th><th style="text-align:right">Ціна</th></tr></thead>
     <tbody>
       ${j.parts.map(p => `<tr>
-        <td>${escapeHtml(p.name)}</td>
-        <td>${fmtNum(p.qty)} ${escapeHtml(p.unit || 'шт')}</td>
-        <td>${Math.round((p.sale || 0) * (p.qty || 1)).toLocaleString()} грн</td>
+        <td>${p.name}</td>
+        <td>${p.qty} ${p.unit || 'шт'}</td>
+        <td>${Math.round(p.sale * p.qty).toLocaleString()} грн</td>
       </tr>`).join('')}
-      <tr class="subtotal-row">
-        <td>Разом запчастини:</td>
-        <td>${Math.round(partsTotal).toLocaleString()} грн</td>
-      </tr>
     </tbody>
   </table>` : ''}
 
   <hr class="red-line">
-  <div class="total-block">
-    ${worksTotal > 0 ? `<div class="total-row"><span class="total-label">Роботи:</span><span class="total-val">${Math.round(worksTotal).toLocaleString()} грн</span></div>` : ''}
-    ${codingsTotal > 0 ? `<div class="total-row"><span class="total-label">Кодування:</span><span class="total-val">${Math.round(codingsTotal).toLocaleString()} грн</span></div>` : ''}
-    ${partsTotal > 0 ? `<div class="total-row"><span class="total-label">Запчастини:</span><span class="total-val">${Math.round(partsTotal).toLocaleString()} грн</span></div>` : ''}
-    <div class="total-row" style="margin-top:3mm;padding-top:3mm;border-top:1px solid #ddd">
-      <span class="grand-label">Разом до сплати:</span>
-      <span class="grand-val">${grandTotal.toLocaleString()} грн</span>
-    </div>
-    ${paid > 0 ? `
-    <div class="total-row">
-      <span class="total-label">Сплачено:</span>
-      <span class="paid-val">${Math.round(paid).toLocaleString()} грн</span>
-    </div>
-    <div class="total-row">
-      <span class="grand-label">Залишок боргу:</span>
-      <span class="debt-val">${debt.toLocaleString()} грн</span>
-    </div>` : ''}
+  <div class="total-row">
+    <span class="total-label">Разом до сплати:</span>
+    <span class="total-val">${Math.round(total).toLocaleString()} грн</span>
   </div>
 
   <div class="sign-row">
@@ -2045,7 +1718,6 @@ async function sharePDF(id) {
   setTimeout(() => { win.print(); }, 800);
   toast('Документ готовий до друку', 'success');
 }
-
 
 // ============================================================
 // STATISTICS
@@ -2077,42 +1749,16 @@ function renderStats() {
   const totalProfit  = laborProfit + partsMargin;
   const openCount    = all.filter(j => j.status === 'open').length;
 
-  // Борги
-  const totalDebt = all.reduce((s, j) => {
-    const p = (j.payments||[]).reduce((a,p) => a+(p.amount||0), 0);
-    return s + Math.max(0, (j.total||0) - p);
-  }, 0);
-  const debtors = all.filter(j => {
-    const p = (j.payments||[]).reduce((a,p) => a+(p.amount||0), 0);
-    return (j.total||0) - p > 0;
-  }).length;
-
-  // Кодування окремо
-  const codingsRevDone = done.reduce((s,j) => s + (j.codingsTotal||0), 0);
-  const codingsCostDone = done.reduce((s,j) => s + (j.codingsCost||0), 0);
-
   document.getElementById('kpi-row').innerHTML = `
     <div class="kpi gray"><div class="kpi-label">Всього ремонтів</div><div class="kpi-val">${all.length}</div><div class="kpi-sub">за весь час</div></div>
     <div class="kpi red"><div class="kpi-label">Відкриті</div><div class="kpi-val red">${openCount}</div><div class="kpi-sub">в роботі</div></div>
     <div class="kpi blue"><div class="kpi-label">Виручка (завершені)</div><div class="kpi-val blue">${Math.round(totalRevenue).toLocaleString()}</div><div class="kpi-sub">грн за період</div></div>
     <div class="kpi green"><div class="kpi-label">Чистий прибуток</div><div class="kpi-val green">${Math.round(totalProfit).toLocaleString()}</div><div class="kpi-sub">грн за період</div></div>
     <div class="kpi amber"><div class="kpi-label">Маржа запчастин</div><div class="kpi-val amber">${Math.round(partsMargin).toLocaleString()}</div><div class="kpi-sub">грн за період</div></div>
-    <div class="kpi blue"><div class="kpi-label">Прибуток з робіт</div><div class="kpi-val blue">${Math.round(laborProfit).toLocaleString()}</div><div class="kpi-sub">роздрібна − собів.</div></div>
-    <div class="kpi amber"><div class="kpi-label">Кодування</div><div class="kpi-val amber">${Math.round(codingsRevDone).toLocaleString()}</div><div class="kpi-sub">виручка / прибуток: ${Math.round(codingsRevDone-codingsCostDone).toLocaleString()} грн</div></div>
-    <div class="kpi red"><div class="kpi-label">Загальний борг</div><div class="kpi-val red">${Math.round(totalDebt).toLocaleString()}</div><div class="kpi-sub">${debtors} боржників</div></div>`;
+    <div class="kpi blue"><div class="kpi-label">Прибуток з робіт</div><div class="kpi-val blue">${Math.round(laborProfit).toLocaleString()}</div><div class="kpi-sub">роздрібна − собів.</div></div>`;
 
-  // Заповнюємо список ремонтів для аналізу
-  const sel = document.getElementById('stat-repair-sel');
-  const prevVal = sel.value;
-  sel.innerHTML = '<option value="">— оберіть ремонт —</option>' +
-    all.slice().sort((a,b) => (b.date||'').localeCompare(a.date||'')).map(j =>
-      `<option value="${escapeHtml(j.id)}">${escapeHtml(j.car)}${j.client?' — '+escapeHtml(j.client):''}${j.date?' — '+escapeHtml(j.date):''}</option>`
-    ).join('');
-  if (prevVal) sel.value = prevVal;
-
-  // Топ робіт — тільки ЗАВЕРШЕНІ
   const wc = {};
-  done.forEach(j => {
+  inPeriod.forEach(j => {
     [...(j.works||[]), ...(j.codings||[])].forEach(w => {
       wc[w.name] = (wc[w.name] || 0) + 1;
     });
@@ -2121,7 +1767,7 @@ function renderStats() {
   const mw = sw[0] ? sw[0][1] : 1;
   document.getElementById('stat-works').innerHTML = sw.map(([w, c]) => `
     <div class="stat-row">
-      <span class="stat-name">${escapeHtml(w)}</span>
+      <span class="stat-name">${w}</span>
       <div class="stat-track"><div class="stat-fill" style="width:${Math.round(c/mw*100)}%"></div></div>
       <span class="stat-val">${c} шт.</span>
     </div>`).join('') || '<div style="color:var(--text3);font-size:13px">Немає даних</div>';
@@ -2134,12 +1780,11 @@ function renderStats() {
   const ms = ss[0] ? ss[0][1] : 1;
   document.getElementById('stat-suppliers').innerHTML = ss.map(([s, c]) => `
     <div class="stat-row">
-      <span class="stat-name">${escapeHtml(s)}</span>
+      <span class="stat-name">${s}</span>
       <div class="stat-track"><div class="stat-fill" style="width:${Math.round(c/ms*100)}%;background:var(--green)"></div></div>
       <span class="stat-val">${Math.round(c).toLocaleString()} грн</span>
     </div>`).join('') || '<div style="color:var(--text3);font-size:13px">Немає даних</div>';
 
-  // Фінанси по видах робіт — ВИПРАВЛЕНО: cost → собівартість, retail → виручка
   const wf = {};
   done.forEach(j => {
     [...(j.works||[]), ...(j.codings||[])].forEach(w => {
@@ -2151,12 +1796,13 @@ function renderStats() {
   });
   const wfList = Object.values(wf).sort((a, b) => b.retail - a.retail);
   document.getElementById('stat-works-finance').innerHTML = wfList.length ? `
-    <div class="pst-head"><span>Вид роботи</span><span style="text-align:right">К-ть</span><span style="text-align:right">Виручка / Прибуток</span></div>` +
+    <div class="pst-head"><span>Вид роботи</span><span style="text-align:right">Кіл-ть</span><span style="text-align:right">Собівартість</span><span style="text-align:right">Виручка / Прибуток</span></div>` +
     wfList.map(w => `
     <div class="pst-row">
-      <span>${escapeHtml(w.name)}</span>
-      <span style="text-align:right;color:var(--text3)">${w.count}</span>
-      <span style="text-align:right">${Math.round(w.retail).toLocaleString()} / <b style="color:var(--green2)">+${Math.round(w.retail - w.cost).toLocaleString()}</b> грн</span>
+      <span>${w.name}</span>
+      <span>${w.count}</span>
+      <span>${Math.round(w.cost).toLocaleString()} грн</span>
+      <span>${Math.round(w.retail).toLocaleString()} / <b style="color:var(--green2)">${Math.round(w.retail-w.cost).toLocaleString()}</b> грн</span>
     </div>`).join('') : '<div style="color:var(--text3);font-size:13px">Немає завершених ремонтів за цей період</div>';
 
   const pa = {};
@@ -2167,108 +1813,15 @@ function renderStats() {
     pa[p.name].sale += p.sale * p.qty;
   }));
   const paList = Object.values(pa).sort((a, b) => b.qty - a.qty);
-
-  // Боржники
-  const debtorsList = all.map(j => {
-    const p = (j.payments||[]).reduce((s,p) => s+(p.amount||0), 0);
-    return { car: j.car, client: j.client||'—', debt: Math.round((j.total||0) - p) };
-  }).filter(d => d.debt > 0).sort((a,b) => b.debt - a.debt);
-
-  document.getElementById('stat-debtors').innerHTML = debtorsList.length
-    ? debtorsList.map(d => `
-      <div class="stat-row">
-        <span class="stat-name" style="color:#4d9fd6">${escapeHtml(d.car)}</span>
-        <span style="font-size:12px;color:#909090;margin-left:6px">${escapeHtml(d.client)}</span>
-        <span class="stat-val" style="color:#ef9f27">${d.debt.toLocaleString()} грн</span>
-      </div>`).join('')
-    : '<div style="color:var(--text3);font-size:13px">Боржників немає</div>';
-
-  // Витрати запчастин — ВИПРАВЛЕНО: cost (закупівля) і sale (продаж)
   document.getElementById('stat-parts').innerHTML = paList.length ? `
     <div class="pst-head"><span>Назва</span><span style="text-align:right">Кількість</span><span style="text-align:right">Закупівля</span><span style="text-align:right">Продаж</span></div>` +
     paList.map(p => `
-    <div class="pst-row" style="grid-template-columns:1fr auto auto auto">
-      <span>${escapeHtml(p.name)}</span>
-      <span style="text-align:right;color:var(--text3)">${p.unit === 'шт' ? Math.round(p.qty) : Number(p.qty).toFixed(1)} ${escapeHtml(p.unit)}</span>
-      <span style="text-align:right;color:var(--text3)">${Math.round(p.cost).toLocaleString()} грн</span>
-      <span style="text-align:right;color:var(--green2)">${Math.round(p.sale).toLocaleString()} грн</span>
+    <div class="pst-row">
+      <span>${p.name}</span>
+      <span>${p.unit === 'шт' ? Math.round(p.qty) : p.qty.toFixed(1)} ${p.unit}</span>
+      <span>${Math.round(p.cost).toLocaleString()} грн</span>
+      <span>${Math.round(p.sale).toLocaleString()} грн</span>
     </div>`).join('') : '<div style="color:var(--text3);font-size:13px">Немає даних за цей період</div>';
-}
-
-function renderRepairAnalysis() {
-  const id  = document.getElementById('stat-repair-sel').value;
-  const det = document.getElementById('stat-repair-detail');
-  const emp = document.getElementById('stat-repair-empty');
-  if (!id) { det.style.display='none'; emp.style.display=''; return; }
-
-  const j = state.repairs.find(r => String(r.id) === String(id));
-  if (!j) { det.style.display='none'; emp.style.display=''; return; }
-
-  det.style.display = '';
-  emp.style.display = 'none';
-
-  // KPI міні-картки
-  const worksRev  = (j.works||[]).reduce((s,w)=>s+(w.retail||0),0);
-  const worksCost = (j.works||[]).reduce((s,w)=>s+(w.cost||0),0);
-  const codRev    = (j.codings||[]).reduce((s,c)=>s+(c.retail||0),0);
-  const codCost   = (j.codings||[]).reduce((s,c)=>s+(c.cost||0),0);
-  const partsRev  = (j.parts||[]).reduce((s,p)=>s+(p.sale||0)*(p.qty||1),0);
-  const partsCost = (j.parts||[]).reduce((s,p)=>s+(p.cost||0)*(p.qty||1),0);
-  const partsMargin = partsRev - partsCost;
-
-  document.getElementById('stat-repair-kpi').innerHTML = `
-    <div class="ra-kpi">
-      <div class="ra-kpi-label">Роботи</div>
-      <div class="ra-kpi-val" style="color:#EF9F27">${Math.round(worksRev).toLocaleString()}</div>
-      <div class="ra-kpi-sub">прибуток <span style="color:var(--green2)">+${Math.round(worksRev-worksCost).toLocaleString()}</span></div>
-    </div>
-    <div class="ra-kpi">
-      <div class="ra-kpi-label">Кодування</div>
-      <div class="ra-kpi-val" style="color:#c060c0">${Math.round(codRev).toLocaleString()}</div>
-      <div class="ra-kpi-sub">прибуток <span style="color:var(--green2)">+${Math.round(codRev-codCost).toLocaleString()}</span></div>
-    </div>
-    <div class="ra-kpi">
-      <div class="ra-kpi-label">Запчастини</div>
-      <div class="ra-kpi-val" style="color:#4d9fd6">${Math.round(partsRev).toLocaleString()}</div>
-      <div class="ra-kpi-sub">маржа <span style="color:var(--green2)">+${Math.round(partsMargin).toLocaleString()}</span></div>
-    </div>`;
-
-  // Таблиця робіт + кодувань
-  const allWorks = [
-    ...(j.works||[]).map(w=>({...w, _type:'w'})),
-    ...(j.codings||[]).map(c=>({...c, _type:'c'}))
-  ];
-  document.getElementById('stat-repair-works').innerHTML = allWorks.length ? `
-    <div class="ra-works-head"><span>Назва</span><span style="text-align:right">Виручка</span><span style="text-align:right">Прибуток</span></div>` +
-    allWorks.map(w => `
-    <div class="ra-works-row">
-      <span style="min-width:0;word-break:break-word">${escapeHtml(w.name)}<span class="ra-tag ${w._type==='w'?'ra-tag-w':'ra-tag-c'}">${w._type==='w'?'робота':'код.'}</span></span>
-      <span style="text-align:right;color:#fff;font-weight:600">${fmtNum(w.retail).toLocaleString()}</span>
-      <span style="text-align:right;color:var(--green2);font-weight:600">+${Math.round((w.retail||0)-(w.cost||0)).toLocaleString()}</span>
-    </div>`).join('')
-    : '<div style="color:var(--text3);font-size:13px;padding:6px 0">Робіт немає</div>';
-
-  // Постачальники
-  const supMap = {};
-  (j.parts||[]).forEach(p => {
-    const s = p.supplier || '—';
-    if (!supMap[s]) supMap[s] = { count:0, cost:0, sale:0 };
-    supMap[s].count++;
-    supMap[s].cost += (p.cost||0) * (p.qty||1);
-    supMap[s].sale += (p.sale||0) * (p.qty||1);
-  });
-  const supList = Object.entries(supMap).sort((a,b)=>b[1].cost-a[1].cost);
-  document.getElementById('stat-repair-suppliers').innerHTML = supList.length ?
-    supList.map(([s, v]) => `
-    <div class="ra-sup-item">
-      <span class="sup-badge ${supClass(s)}">${escapeHtml(s)}</span>
-      <span class="ra-sup-count">${v.count} поз.</span>
-      <div class="ra-sup-vals">
-        <div class="ra-sup-cost">закуп: ${Math.round(v.cost).toLocaleString()} грн</div>
-        <div class="ra-sup-margin">маржа: +${Math.round(v.sale-v.cost).toLocaleString()} грн</div>
-      </div>
-    </div>`).join('')
-    : '<div style="color:var(--text3);font-size:13px;padding:6px 0">Запчастин немає</div>';
 }
 
 // ============================================================
@@ -2286,7 +1839,7 @@ function renderSettings() {
 function renderSuppliers() {
   document.getElementById('sup-list').innerHTML = state.suppliers.map(s => `
     <div class="sp-item">
-      <span class="sp-item-name">${escapeHtml(s.name)}</span>
+      <span class="sp-item-name">${s.name}</span>
       <button class="btn-d" onclick="deleteSupplier('${s.id}')">×</button>
     </div>`).join('');
 }
@@ -2325,78 +1878,54 @@ function calcSale(cost, markup, markupType) {
 function renderPartsCatalog() {
   const el = document.getElementById('parts-list');
   if (!state.parts.length) {
-    el.innerHTML = `<div class="cat-section cat-section-parts open">
-      <div class="cat-header" onclick="toggleCatSection(this)">
-        <div class="cat-header-left"><span class="cat-dot"></span><span class="cat-name">Запчастини</span><span class="cat-count">0</span></div>
-        <svg class="cat-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="cat-body"><div style="color:var(--text3);font-size:13px">Каталог порожній</div></div>
-    </div>`;
+    el.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px 0">Каталог порожній</div>';
     return;
   }
-  const rows = state.parts.map(p => {
-    const sale   = calcSale(p.cost, p.markup, p.markupType);
+  el.innerHTML = state.parts.map(p => {
+    const sale = calcSale(p.cost, p.markup, p.markupType);
     const margin = sale - (p.cost || 0);
-    const isPct  = (p.markupType || 'pct') !== 'fix';
+    const isPct = (p.markupType || 'pct') !== 'fix';
     return `<div class="pt-row" id="prow-${p.id}">
-      <div class="pt-row-header" onclick="toggleCatRow(this.closest('.pt-row'))">
-        <span class="pt-row-name">${escapeHtml(p.name)}</span>
-        <span class="pt-row-unit">${escapeHtml(p.unit)}</span>
-        ${sale > 0 ? `<span style="font-size:12px;font-weight:700;color:#4d9fd6;margin-left:4px">${sale} грн</span>` : ''}
-        ${margin > 0 ? `<span style="font-size:11px;color:var(--green2);margin-left:4px">+${margin}</span>` : ''}
-        <svg class="pt-row-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      <div class="pt-row-top">
+        <span class="pt-row-name">${p.name}</span>
+        <span class="pt-row-unit">${p.unit}</span>
+        <button class="btn-d" style="flex-shrink:0;padding:4px 10px" onclick="deletePart('${p.id}')">×</button>
       </div>
-      <div class="pt-row-fields-wrap">
-        <div id="prow-margin-${p.id}" style="font-size:12px;color:var(--green2);min-height:16px;margin-bottom:8px">
-          ${margin > 0 ? 'маржа: +' + margin + ' грн' : ''}
+      <div id="prow-margin-${p.id}" style="font-size:12px;color:var(--green2);min-height:16px">
+        ${margin > 0 ? 'маржа: +' + margin + ' грн' : ''}
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="fl">
+          <label>Прихідна ціна (грн)</label>
+          <input type="number" id="pcost-${p.id}" value="${p.cost||''}" min="0" placeholder="0"
+            oninput="recalcPartSale('${p.id}')">
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
-          <div class="fl">
-            <label>Прихідна ціна (грн)</label>
-            <input type="number" id="pcost-${p.id}" value="${p.cost||''}" min="0" placeholder="0"
-              oninput="recalcPartSale('${p.id}')">
-          </div>
-          <div class="fl">
-            <label>Ціна продажу (грн)</label>
-            <input type="number" id="psale-${p.id}" value="${sale||''}" min="0" placeholder="0"
-              style="color:var(--green2);font-weight:700"
-              oninput="recalcPartMargin('${p.id}')">
-          </div>
-        </div>
-        <div class="fl" style="margin-bottom:8px">
-          <label>Тип і розмір націнки</label>
-          <div style="display:flex;gap:8px;align-items:center">
-            <div class="toggle-btns" style="flex-shrink:0">
-              <button class="tb ${isPct?'active':''}" id="pmu-pct-${p.id}"
-                onclick="switchPartMuType('${p.id}','pct',this)">%</button>
-              <button class="tb ${!isPct?'active':''}" id="pmu-fix-${p.id}"
-                onclick="switchPartMuType('${p.id}','fix',this)">грн</button>
-            </div>
-            <input type="number" id="pmarkup-${p.id}" value="${p.markup||''}" min="0"
-              placeholder="${isPct ? 'напр. 20' : 'напр. 500'}"
-              style="flex:1" oninput="recalcPartSale('${p.id}')">
-            <span style="font-size:12px;color:var(--text3)">${isPct ? '%' : 'грн'}</span>
-          </div>
-        </div>
-        <div style="display:flex;gap:6px">
-          <button class="btn-p sm" style="flex:1" onclick="savePartFromCatalog('${p.id}')">Зберегти</button>
-          <button class="btn-d" onclick="deletePart('${p.id}')">Видалити</button>
+        <div class="fl">
+          <label>Ціна продажу (грн)</label>
+          <input type="number" id="psale-${p.id}" value="${sale||''}" min="0" placeholder="0"
+            style="color:var(--green2);font-weight:700"
+            oninput="recalcPartMargin('${p.id}')">
         </div>
       </div>
+      <div class="fl">
+        <label>Тип і розмір націнки</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="toggle-btns" style="flex-shrink:0">
+            <button class="tb ${isPct?'active':''}" id="pmu-pct-${p.id}"
+              onclick="switchPartMuType('${p.id}','pct',this)">%</button>
+            <button class="tb ${!isPct?'active':''}" id="pmu-fix-${p.id}"
+              onclick="switchPartMuType('${p.id}','fix',this)">грн</button>
+          </div>
+          <input type="number" id="pmarkup-${p.id}" value="${p.markup||''}" min="0"
+            placeholder="${isPct ? 'напр. 20' : 'напр. 500'}"
+            style="flex:1" oninput="recalcPartSale('${p.id}')">
+          <span style="font-size:12px;color:var(--text3)">${isPct ? '%' : 'грн'}</span>
+        </div>
+      </div>
+      <button class="btn-p sm" style="width:100%;margin-top:4px"
+        onclick="savePartFromCatalog('${p.id}')">Зберегти</button>
     </div>`;
   }).join('');
-
-  el.innerHTML = `<div class="cat-section cat-section-parts open">
-    <div class="cat-header" onclick="toggleCatSection(this)">
-      <div class="cat-header-left">
-        <span class="cat-dot"></span>
-        <span class="cat-name">Запчастини</span>
-        <span class="cat-count">${state.parts.length}</span>
-      </div>
-      <svg class="cat-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="cat-body">${rows}</div>
-  </div>`;
 }
 
 function recalcPartSale(id) {
@@ -2507,58 +2036,33 @@ async function deletePart(id) {
 function renderCodingsCatalog() {
   const el = document.getElementById('codings-list');
   if (!el) return;
-  if (!state.codings.length) {
-    el.innerHTML = `<div class="cat-section cat-section-codings open">
-      <div class="cat-header" onclick="toggleCatSection(this)">
-        <div class="cat-header-left"><span class="cat-dot"></span><span class="cat-name">Кодування</span><span class="cat-count">0</span></div>
-        <svg class="cat-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="cat-body"><div style="color:var(--text3);font-size:13px">Каталог порожній</div></div>
-    </div>`;
-    return;
-  }
-  const rows = state.codings.map(c => {
+  if (!state.codings.length) { el.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px 0">Каталог порожній</div>'; return; }
+  el.innerHTML = state.codings.map(c => {
     const profit = (c.retail||0) - (c.cost||0);
     return `<div class="wt-row" id="crow-${c.id}">
-      <div class="wt-row-header" onclick="toggleCatRow(this.closest('.wt-row'))">
-        <span style="font-weight:700;font-size:14px;flex:1">${escapeHtml(c.name)}</span>
-        ${c.retail > 0 ? `<span style="font-size:12px;font-weight:700;color:#c060c0">${fmtNum(c.retail)} грн</span>` : ''}
-        ${profit > 0 ? `<span style="font-size:11px;color:var(--green2);margin-left:4px">+${profit}</span>` : ''}
-        <svg class="wt-row-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="wt-row-fields-wrap">
-        <div id="cprofit-${c.id}" style="font-size:12px;color:var(--green2);margin-bottom:8px;min-height:16px">
-          ${profit > 0 ? 'прибуток: +' + profit + ' грн' : ''}
-        </div>
-        <div class="wt-row-fields" style="margin-bottom:8px">
-          <div class="fl"><label>Роздрібна (грн)</label>
-            <input type="number" id="cretail-${c.id}" value="${c.retail||0}" min="0"
-              oninput="updateCProfit('${c.id}')">
-          </div>
-          <div class="fl admin-only"><label>Собівартість (грн)</label>
-            <input type="number" id="ccost-${c.id}" value="${c.cost||0}" min="0"
-              oninput="updateCProfit('${c.id}')">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div>
+          <div style="font-weight:700;font-size:14px">${c.name}</div>
+          <div id="cprofit-${c.id}" style="font-size:12px;color:var(--green2);margin-top:2px">
+            ${profit > 0 ? 'прибуток: +' + profit + ' грн' : ''}
           </div>
         </div>
-        <div style="display:flex;gap:6px">
-          <button class="btn-p sm" style="flex:1" onclick="saveCodingFromCatalog('${c.id}')">Зберегти</button>
-          <button class="btn-d" onclick="deleteCoding('${c.id}')">Видалити</button>
+        <button class="btn-d" style="flex-shrink:0;padding:4px 10px" onclick="deleteCoding('${c.id}')">×</button>
+      </div>
+      <div class="wt-row-fields">
+        <div class="fl"><label>Роздрібна (грн)</label>
+          <input type="number" id="cretail-${c.id}" value="${c.retail||0}" min="0"
+            oninput="updateCProfit('${c.id}')">
+        </div>
+        <div class="fl admin-only"><label>Собівартість (грн)</label>
+          <input type="number" id="ccost-${c.id}" value="${c.cost||0}" min="0"
+            oninput="updateCProfit('${c.id}')">
         </div>
       </div>
+      <button class="btn-p sm" style="width:100%;margin-top:4px"
+        onclick="saveCodingFromCatalog('${c.id}')">Зберегти</button>
     </div>`;
   }).join('');
-
-  el.innerHTML = `<div class="cat-section cat-section-codings open">
-    <div class="cat-header" onclick="toggleCatSection(this)">
-      <div class="cat-header-left">
-        <span class="cat-dot"></span>
-        <span class="cat-name">Кодування</span>
-        <span class="cat-count">${state.codings.length}</span>
-      </div>
-      <svg class="cat-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="cat-body">${rows}</div>
-  </div>`;
   if (state.role !== 'admin') {
     document.querySelectorAll('#codings-list .admin-only').forEach(el => el.style.display='none');
   }
@@ -2615,60 +2119,35 @@ async function deleteCoding(id) {
 
 function renderWorksCatalog() {
   const el = document.getElementById('works-list');
-  if (!state.works.length) {
-    el.innerHTML = `<div class="cat-section cat-section-works open">
-      <div class="cat-header" onclick="toggleCatSection(this)">
-        <div class="cat-header-left"><span class="cat-dot"></span><span class="cat-name">Роботи</span><span class="cat-count">0</span></div>
-        <svg class="cat-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="cat-body"><div style="color:var(--text3);font-size:13px">Каталог порожній</div></div>
-    </div>`;
-    return;
-  }
-  const rows = state.works.map(w => {
+  if (!state.works.length) { el.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:8px 0">Каталог порожній</div>'; return; }
+  el.innerHTML = state.works.map(w => {
     const profit = (w.retail||0) - (w.cost||0);
     return `<div class="wt-row" id="wrow-${w.id}">
-      <div class="wt-row-header" onclick="toggleCatRow(this.closest('.wt-row'))">
-        <span style="font-weight:700;font-size:14px;flex:1">${escapeHtml(w.name)}</span>
-        ${w.retail > 0 ? `<span style="font-size:12px;font-weight:700;color:#27c47a">${fmtNum(w.retail)} грн</span>` : ''}
-        ${profit > 0 ? `<span style="font-size:11px;color:var(--text3);margin-left:4px">+${profit}</span>` : ''}
-        <svg class="wt-row-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="wt-row-fields-wrap">
-        <div id="wprofit-${w.id}" style="font-size:12px;color:var(--green2);margin-bottom:8px;min-height:16px">
-          ${profit > 0 ? 'прибуток: +' + profit + ' грн' : ''}
-        </div>
-        <div class="wt-row-fields" style="margin-bottom:8px">
-          <div class="fl">
-            <label>Роздрібна (грн)</label>
-            <input type="number" id="wretail-${w.id}" value="${w.retail||0}" min="0" placeholder="0"
-              oninput="updateWProfit('${w.id}')">
-          </div>
-          <div class="fl admin-only">
-            <label>Собівартість (грн)</label>
-            <input type="number" id="wcost-${w.id}" value="${w.cost||0}" min="0" placeholder="0"
-              oninput="updateWProfit('${w.id}')">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div>
+          <div style="font-weight:700;font-size:14px">${w.name}</div>
+          <div id="wprofit-${w.id}" style="font-size:12px;color:var(--green2);margin-top:2px">
+            ${profit > 0 ? 'прибуток: +' + profit + ' грн' : ''}
           </div>
         </div>
-        <div style="display:flex;gap:6px">
-          <button class="btn-p sm" style="flex:1" onclick="saveWorkFromCatalog('${w.id}')">Зберегти</button>
-          <button class="btn-d" onclick="deleteWork('${w.id}')">Видалити</button>
+        <button class="btn-d" style="flex-shrink:0;padding:4px 10px" onclick="deleteWork('${w.id}')">×</button>
+      </div>
+      <div class="wt-row-fields">
+        <div class="fl">
+          <label>Роздрібна (грн)</label>
+          <input type="number" id="wretail-${w.id}" value="${w.retail||0}" min="0" placeholder="0"
+            oninput="updateWProfit('${w.id}')">
+        </div>
+        <div class="fl admin-only">
+          <label>Собівартість (грн)</label>
+          <input type="number" id="wcost-${w.id}" value="${w.cost||0}" min="0" placeholder="0"
+            oninput="updateWProfit('${w.id}')">
         </div>
       </div>
+      <button class="btn-p sm" style="width:100%;margin-top:4px"
+        onclick="saveWorkFromCatalog('${w.id}')">Зберегти</button>
     </div>`;
   }).join('');
-
-  el.innerHTML = `<div class="cat-section cat-section-works open">
-    <div class="cat-header" onclick="toggleCatSection(this)">
-      <div class="cat-header-left">
-        <span class="cat-dot"></span>
-        <span class="cat-name">Роботи</span>
-        <span class="cat-count">${state.works.length}</span>
-      </div>
-      <svg class="cat-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="cat-body">${rows}</div>
-  </div>`;
   if (state.role !== 'admin') {
     document.querySelectorAll('#works-list .admin-only').forEach(el => el.style.display='none');
   }
@@ -2722,9 +2201,9 @@ async function deleteWork(id) {
 function renderUsers() {
   document.getElementById('users-list').innerHTML = state.users.map(u => `
     <div class="ut-row">
-      <span>${escapeHtml(u.login)}</span>
-      <span><span class="role-badge role-${escapeHtml(u.role)}">${escapeHtml(roleLabel(u.role))}</span></span>
-      <span style="color:var(--text3);font-size:12px">${escapeHtml(u.lastLogin || '—')}</span>
+      <span>${u.login}</span>
+      <span><span class="role-badge role-${u.role}">${roleLabel(u.role)}</span></span>
+      <span style="color:var(--text3);font-size:12px">${u.lastLogin || '—'}</span>
       <button class="btn-d" onclick="deleteUser('${u.id}')">×</button>
     </div>`).join('');
 }
@@ -2757,15 +2236,6 @@ async function deleteUser(id) {
 // ============================================================
 // HELPERS
 // ============================================================
-function toggleCatSection(headerEl) {
-  const section = headerEl.closest('.cat-section');
-  if (section) section.classList.toggle('open');
-}
-
-function toggleCatRow(rowEl) {
-  if (rowEl) rowEl.classList.toggle('open');
-}
-
 function openModal(id)  { document.getElementById(id).classList.add('open'); }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 function showLoader()   { document.getElementById('loader').classList.add('show'); }
@@ -2789,6 +2259,5 @@ if (state.token) {
   });
 }
 </script>
-<div style="position:fixed;bottom:6px;right:10px;font-size:10px;color:#333;font-family:monospace;z-index:9999;pointer-events:none">v24.05.26-34</div>
 </body>
 </html>
